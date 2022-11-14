@@ -43,17 +43,6 @@ public class CircularCloudLayouterTests
     private CircularCloudLayouter layouter = null!;
     private Point center = Point.Empty;
 
-    [TestCase(-1, -1)]
-    [TestCase(-1, 10)]
-    [TestCase(10, -1)]
-    [TestCase(0, 0)]
-    public void Constructor_Throws_Parameters(int centerX, int centerY)
-    {
-        var action = () => { _ = new CircularCloudLayouter(new(centerX, centerY)); };
-
-        action.Should().Throw<ArgumentException>();
-    }
-
     [Test]
     public void PutNextRectangle_RectangleAtCenter_ValidSize()
     {
@@ -138,7 +127,7 @@ public class CircularCloudLayouterTests
             .Select(point => point.DistanceTo(Point.Empty))
             .Max();
         var expectedCircleArea = maxDistanceFromCenter * maxDistanceFromCenter * Math.PI;
-        
+
         rectanglesArea.Should()
             .BeApproximately(expectedCircleArea, expectedCircleArea * expectedAreaErrorRate);
     }

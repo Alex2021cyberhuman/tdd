@@ -18,8 +18,8 @@ public class DrawingCircularCloudLayoutTracer : ICircularCloudLayoutTracer, IDis
     private readonly Pen shiftingPen;
     private int counter;
     private Point previousRectangleCenter;
-    private double spiralRadius;
     private double rectangleAngleRadius;
+    private double spiralRadius;
 
     public DrawingCircularCloudLayoutTracer(
         int width,

@@ -11,8 +11,6 @@ public class CircularCloudLayouter : ICircularCloudLayouter
 
     public CircularCloudLayouter(Point center, ICircularCloudLayoutTracer? tracer = null)
     {
-        if (center.IsEmpty || center.X <= 0 || center.Y <= 0)
-            throw new ArgumentException("center point is invalid", nameof(center));
         this.center = center;
         this.tracer = tracer;
         spiralEnumerator = CircularHelper.EnumeratePointsInArchimedesSpiral(0.01f, 0.05f, center).GetEnumerator();
